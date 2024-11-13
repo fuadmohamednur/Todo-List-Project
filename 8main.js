@@ -26,7 +26,8 @@ function addTask(e){
             completed: false  
         }
         // adding to the dom
-        addTaskToDOM(task)    
+        addTaskToDOM(task);
+        saveTaskToLocalStorage(task);    
 
         todoInput.value = ""; //todoInput waxa ku jira marka wax lagu qoro firaaqeey
      }
@@ -48,4 +49,16 @@ function addTaskToDOM(task) {
             <button class="delete-btn">Delete</button>`
 
             todoList.appendChild(li); // appendChild waxa weeye wixi hore hesatay ku dawaqabo
+}
+
+
+function saveTaskToLocalStorage(task){
+
+
+    const oldTasks = JSON.parse(localStorage.getItem("tasks")) || [];//hadii oo null noqdo arrey nosoceli
+
+    oldTasks.push(task)// ku wiii hore lagudray ku wii cusbaay
+
+    
+ localStorage.setItem("tasks", JSON.stringify(oldTasks))
 }
