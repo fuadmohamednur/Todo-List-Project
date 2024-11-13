@@ -13,8 +13,7 @@ function loadTasks(){
    const tasks = getTasksFormLocalStorage();
 
    tasks.forEach(task => {
-    console.log(task);
-    
+     addTaskToDOM(task)    
    })
    
 }
