@@ -63,20 +63,31 @@ function addTaskToDOM(task) {
             <button class="delete-btn">Delete</button>`
 
             todoList.appendChild(li); // appendChild waxa weeye wixi hore hesatay ku dawaqabo
-            attachEventListeners(li, task)
+
+
+            attechEventListeners(li,task);
 
 }
 
 
-function addEventListener(li, task){
+function  attechEventListeners(li,task){
 
-    const deleteBtn = li.querySelector(".delete-btn");
+     const deleteBtn = li.querySelector(".delete-btn");
 
-    deleteBtn.addEventListener("click", function(){
+     deleteBtn.addEventListener("click",function(){
+        handleDelete(task.id, li)
+                  
+     })
+}
 
-        console.log('click');
-        
-    })
+function handleDelete(id, li){
+
+    let tasks = getTasksFormLocalStorage();
+
+    tasks = tasks.filter(task => task.id != id);
+
+   console.log(tasks);
+   
 }
 
 
